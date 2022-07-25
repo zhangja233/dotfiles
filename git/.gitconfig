@@ -1,0 +1,5 @@
+[user]
+	email = zja148740@gmail.com
+	name = Ju-an Zhang
+[core]
+	excludesFile = ~/.gitignore
