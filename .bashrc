@@ -118,7 +118,8 @@ fi
 
 # my alias
 
-nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
+alias nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/scripts:$PATH"
