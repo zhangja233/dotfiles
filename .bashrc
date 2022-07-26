@@ -115,3 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# my alias
+
+nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
