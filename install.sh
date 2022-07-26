@@ -13,3 +13,5 @@ if [ -f ~/.bashrc ]; then
 fi    
 
 ln -s "$path/.bashrc" ~/.bashrc
+
+ln -s "$path/.zshrc" ~/.zshrc
