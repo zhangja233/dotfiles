@@ -122,3 +122,6 @@ nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$HOME/.local/lib"
+
+. "$HOME/.cargo/env"
