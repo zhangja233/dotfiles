@@ -119,7 +119,11 @@ fi
 # my alias
 
 alias nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
+alias e='emacsclient --create-frame'
 
-# PATH
+# environment variables 
+export EDITOR='vim'
+export VISUAL='vim'
+## PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
