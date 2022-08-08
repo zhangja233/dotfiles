@@ -1,2 +1,9 @@
+# emacs backup files
 *~
 \#*\#
+
+# build files
+build*/
+
+# backup files
+.bak
