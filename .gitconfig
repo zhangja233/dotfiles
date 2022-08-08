@@ -3,3 +3,5 @@
 	name = Ju-an Zhang
 [core]
 	excludesFile = ~/.gitignore
+[pull]
+	ff = only
