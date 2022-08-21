@@ -22,13 +22,13 @@ if [ $system = 'Darwin' ]; then
 fi
 
 if [ $system = 'Linux' ]; then
+    alias e='emacsclient --create-frame'
+    alias python='python3.10'
+    alias python3='python3.10'    
+    alias kill-emacs="emacsclient -e '(kill-emacs)'"
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
 	alias ls='ls --color=auto'
 	alias zja='squeue |rg zja'
-	alias e='emacsclient --create-frame'
-	alias python='python3.10'
-	alias python3='python3.10'    
-	alias kill-emacs="emacsclient -e '(kill-emacs)'"
     fi
 fi
