@@ -143,10 +143,5 @@ if [ $system = 'Linux' ]; then
 	else  
 	    echo "Emacs server has been started" 
 	fi
-	alias ls='ls --color=auto'
-	alias zja='squeue |rg zja'
-	alias e='emacsclient --create-frame'
-	alias python='python3.10'
-	alias python3='python3.10'    
     fi
 fi
