@@ -8,7 +8,7 @@ if [ $dir != 'dotfiles' ]; then
     exit
 fi
 
-files_to_home=('.bashrc' '.zshrc' '.gitconfig' '.rgignore' '.tmux.conf' '.vimrc')
+files_to_home=('.bashrc' '.zshrc' '.zshenv' '.gitconfig' '.rgignore' '.tmux.conf' '.vimrc')
 for file in ${files_to_home[@]}; do
     if [ ! -f "$HOME/$file" ]; then
 	ln -s "$path/$file" "$HOME/$file"
