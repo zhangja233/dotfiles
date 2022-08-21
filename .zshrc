@@ -10,6 +10,7 @@ if [ $platform = 'cori' ]; then
     alias zja='squeue |rg zja'
     alias e='emacsclient --create-frame'
     alias python='python3.10'
-    alias python3='python3.10'    
+    alias python3='python3.10'
+    alias kill-emacs="emacsclient -e '(kill-emacs)'"
 fi
 
