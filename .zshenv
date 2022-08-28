@@ -6,7 +6,8 @@ system=`uname -a|awk '{print $1}'`
 if [ $system = 'Darwin' ]; then
     alias c="pbcopy"
     alias wolfram='/Applications/Mathematica.app/Contents/MacOS/MathKernel'
-    alias python3="python3.10"
+    alias python3='python3.10'
+    alias g++='g++-12'
     
     export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/Users/zja/bin:$PATH"
