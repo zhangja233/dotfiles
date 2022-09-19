@@ -138,6 +138,9 @@ fi
 if [ $system = 'Linux' ]; then
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
+	alias ls='ls --color=auto'
+	module swap craype-haswell craype-mic-knl
+	module load cray-fftw
 	if ! ps -e -o args | grep -q '^emacs --daemon$'; then  
 	    emacs --daemon
 	else  
