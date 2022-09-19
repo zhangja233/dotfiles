@@ -1,5 +1,7 @@
 system=`uname -a|awk '{print $1}'`
-if [ $system = 'Darwin' ]; then
+
+oh-my-zsh()
+{
     # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -72,10 +74,13 @@ if [ $system = 'Darwin' ]; then
     # Custom plugins may be added to $ZSH_CUSTOM/plugins/
     # Example format: plugins=(rails git textmate ruby lighthouse)
     # Add wisely, as too many plugins slow down shell startup.
-    plugins=(git zsh-z)
+    plugins=(git)
 
     source $ZSH/oh-my-zsh.sh
+}
 
+if [ $system = 'Darwin' ]; then
+    oh-my-zsh
     # User configuration
 
     # >>> conda initialize >>>
@@ -136,6 +141,11 @@ if [ $system = 'Darwin' ]; then
 fi
 
 if [ $system = 'Linux' ]; then
+    if ! ps -e -o args | grep -q '^emacs --daemon$'; then  
+	emacs --daemon
+    else  
+	echo "Emacs server has been started" 
+    fi
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
 	alias ls='ls --color=auto'
@@ -146,5 +156,8 @@ if [ $system = 'Linux' ]; then
 	else  
 	    echo "Emacs server has been started" 
 	fi
+    else
+        oh-my-zsh        
     fi
 fi
+
