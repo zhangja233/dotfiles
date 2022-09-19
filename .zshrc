@@ -151,11 +151,6 @@ if [ $system = 'Linux' ]; then
 	alias ls='ls --color=auto'
 	module swap craype-haswell craype-mic-knl
 	module load cray-fftw
-	if ! ps -e -o args | grep -q '^emacs --daemon$'; then  
-	    emacs --daemon
-	else  
-	    echo "Emacs server has been started" 
-	fi
     else
         oh-my-zsh        
     fi
