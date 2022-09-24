@@ -149,7 +149,6 @@ if [ $system = 'Linux' ]; then
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
 	alias ls='ls --color=auto'
-	alias qe='cd ~/research/q-e-debug'
 	module swap craype-haswell craype-mic-knl
 	module load cray-fftw
     else
@@ -157,3 +156,4 @@ if [ $system = 'Linux' ]; then
     fi
 fi
 
+alias qe='cd ~/research/q-e-debug'
