@@ -148,6 +148,9 @@ if [ $system = 'Linux' ]; then
     fi
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
+	alias ls='ls --color=auto'
+	module swap craype-haswell craype-mic-knl
+	module load cray-fftw
     else
         oh-my-zsh
 	PROMPT="zja@%{$fg_bold[red]%}ubuntu%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
@@ -156,3 +159,4 @@ if [ $system = 'Linux' ]; then
     fi
 fi
 
+alias qe='cd ~/research/q-e-debug'
