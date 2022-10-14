@@ -26,6 +26,7 @@ if [ $system = 'Darwin' ]; then
 fi
 
 if [ $system = 'Linux' ]; then
+    export PATH="$HOME/.local/bin:$PATH" 
     alias e='emacsclient --create-frame'
     alias python='python3.10'
     alias python3='python3.10'    

@@ -129,5 +129,3 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$HOME/.local/lib"
 
-# For autogen
-. "$HOME/.cargo/env"
