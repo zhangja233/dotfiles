@@ -18,15 +18,22 @@ if [ $system = 'Darwin' ]; then
     alias rm='rm -i'
     alias sz="source ~/.zshrc"
     alias nersc="ssh -i ~/.ssh/nersc nersc"
-    alias e="emacsclient -nw --create-frame -F \"'(fullscreen . maximized)\""
-
-    # brew hack for x86
-    alias ibrew='arch -x86_64 /usr/local/bin/brew'
+    alias e="emacsclient --create-frame -F \"'(fullscreen . maximized)\""
 
     PROMPT="zja@%{$fg_bold[red]%}mac%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
     PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
+    ## python
+    alias py="python3 -q" # don't display copyright and version messages
     export PYTHONSTARTUP="$HOME/dotfiles/python/python_startup.py"
+    export VIRTUALENVWRAPPER_PYTHON=/opt/homebrew/bin/python3
+    export WORKON_HOME=$HOME/.virtualenvs
+    source "$HOME/Library/Python/3.10/bin/virtualenvwrapper.sh"
+
+    ## homebrew
+    alias ibrew='arch -x86_64 /usr/local/bin/brew' # brew hack for x86
+    export HOMEBREW_CC=gcc-12
+    export HOMEBREW_CXX=g++-12
 fi
 
 if [ $system = 'Linux' ]; then
@@ -38,6 +45,9 @@ if [ $system = 'Linux' ]; then
     elif [ $platform = 'login' ]; then
         export PATH="$HOME/local/perlmutter/bin:$PATH"
     else
+	# zja local machine
+	PROMPT="zja@%{$fg_bold[red]%}ubuntu%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+	PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
         oh-my-zsh
     fi
     if ! ps -e -o args | grep -q '^emacs --daemon$'; then

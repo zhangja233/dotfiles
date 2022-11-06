@@ -144,6 +144,3 @@ fi
 
 alias qe='cd ~/research/q-e-debug'
 export PATH="$HOME/utilities/qe_helper:$PATH"
-
-# For autogen
-. "$HOME/.cargo/env"
