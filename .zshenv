@@ -33,3 +33,5 @@ if [ $system = 'Linux' ]; then
 	alias zja='squeue |rg zja'
     fi
 fi
+
+export PATH="$HOME/utilities/qe_helper:$PATH"

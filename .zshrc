@@ -13,7 +13,7 @@ if [ $system = 'Darwin' ]; then
     # use autojump
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
     autoload -U compinit && compinit
-    
+
     # alias
     alias rm='rm -i'
     alias sz="source ~/.zshrc"
@@ -30,19 +30,22 @@ if [ $system = 'Darwin' ]; then
 fi
 
 if [ $system = 'Linux' ]; then
-    if ! ps -e -o args | grep -q '^emacs --daemon$'; then  
-	emacs --daemon
-    else  
-	echo "Emacs server has been started" 
-    fi
     platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
     if [ $platform = 'cori' ]; then
 	alias ls='ls --color=auto'
 	module swap craype-haswell craype-mic-knl
 	module load cray-fftw
+    elif [ $platform = 'login' ]; then
+        export PATH="$HOME/local/perlmutter/bin:$PATH"
     else
-        oh-my-zsh        
+        oh-my-zsh
+    fi
+    if ! ps -e -o args | grep -q '^emacs --daemon$'; then
+	emacs --daemon
+    else
+	echo "Emacs server has been started"
     fi
 fi
 
 alias qe='cd ~/research/q-e-debug'
+export PATH="$HOME/utilities/qe_helper:$PATH"

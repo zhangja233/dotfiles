@@ -121,13 +121,29 @@ fi
 alias nersc='ssh -l zja -i ~/.ssh/nersc cori.nersc.gov'
 alias e='emacsclient --create-frame'
 
-# environment variables 
+# environment variables
 export EDITOR='vim'
 export VISUAL='vim'
 ## PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$HOME/.local/lib"
+
+system=`uname -a|awk '{print $1}'`
+if [ $system = 'Linux' ]; then
+    platform=`uname -a|awk '{print $2}'|sed 's/\([^0-9]*\).*/\1/'`
+    if [ $platform = 'login' ]; then
+        export PATH="$HOME/local/perlmutter/bin:$PATH"
+    fi
+    if ! ps -e -o args | grep -q '^emacs --daemon$'; then
+	emacs --daemon
+    else
+	echo "Emacs server has been started"
+    fi
+fi
+
+alias qe='cd ~/research/q-e-debug'
+export PATH="$HOME/utilities/qe_helper:$PATH"
 
 # For autogen
 . "$HOME/.cargo/env"
