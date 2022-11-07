@@ -144,3 +144,4 @@ fi
 
 alias qe='cd ~/research/q-e-debug'
 export PATH="$HOME/utilities/qe_helper:$PATH"
+alias zja='squeue |rg zja'

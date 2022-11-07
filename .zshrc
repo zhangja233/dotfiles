@@ -43,6 +43,7 @@ if [ $system = 'Linux' ]; then
 	module swap craype-haswell craype-mic-knl
 	module load cray-fftw
     elif [ $platform = 'login' ]; then
+	alias ls='ls --color=auto'
         export PATH="$HOME/local/perlmutter/bin:$PATH"
     else
 	# zja local machine
